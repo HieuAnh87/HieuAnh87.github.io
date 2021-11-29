@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html lang="en">
+
+
+<head>
+    <nav>
+	<input id="nav-toggle" type="checkbox">
+	<div class="logo">URL <strong>Shortener</strong></div>
+	<ul class="links">
+		<li><a href="{{url_for('home')}}">Home</a></li>
+		<li><a href="{{url_for('about')}}">About</a></li>
+		<li><a href="#projects">Projects</a></li>
+		<li><a href="#contact">Contact</a></li>
+        <li><a href="{{url_for('login')}}">Login</a></li>
+	</ul>
+    </nav>
+	<meta charset="utf-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+	<title>{% block title %}{% endblock %}</title>
+
+</head>
+
+<body>
+    <div>
+        {% block content%}
+        {% endblock %}
+    </div>
+
+  </body>
+</body>
+</html>

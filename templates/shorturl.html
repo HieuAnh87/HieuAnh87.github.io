@@ -1,0 +1,22 @@
+{% extends "url_page.html" %}
+{% block title %}Short URL{% endblock %}
+
+{% block content %}
+<div style="text-align: center; width: 50%; margin: 0 auto;" class="shadowed">
+    <a href="http://192.168.18.42:3000/{{short_url_display}}" id = "CopytextArea">http://192.168.18.42:3000/{{short_url_display}}</a>
+    <button type="button" onclick="copyEvent('CopytextArea')">Copy</button>
+    <script>
+    function copyEvent(id)
+    {
+        var str = document.getElementById(id);
+        window.getSelection().selectAllChildren(str);
+        document.execCommand("Copy")
+        alert("URL Copied.");
+    }
+    </script>
+
+    <br>
+    <br>
+    <a href="http://192.168.18.42:3000/">BACK TO HOMEPAGE</a>
+</div>
+{% endblock %}

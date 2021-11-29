@@ -1,0 +1,24 @@
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+import random
+import string
+from app import db
+
+class Urls(db.Model):
+    id_ = db.Column(db.Integer, primary_key = True)
+    long = db.Column(db.String(500)) #nullable = False
+    short = db.Column(db.String(10))  #, unique = True, nullable = False)
+
+    def __init__(self, long, short):
+        self.long = long
+        self.short = short
+
+
+def shorten_url():
+    letters = string.ascii_lowercase + string.ascii_uppercase
+    while True:
+        rand_letters = random.choices(letters, k=5)
+        rand_letters = "".join(rand_letters)
+        short_url = Urls.query.filter_by(short=rand_letters).first()
+        if not short_url:
+            return rand_letters
