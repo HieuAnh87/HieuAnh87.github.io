@@ -1,6 +1,7 @@
 body {
 	padding: 0;
 	margin-top: 200px;
+	background-image: url("assets/bg.png");
 }
 .container {
 	position: relative;

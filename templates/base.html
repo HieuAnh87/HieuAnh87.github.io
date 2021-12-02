@@ -4,15 +4,18 @@
 
 
 <head>
-    <nav>
+	<nav>
 	<input id="nav-toggle" type="checkbox">
 	<div class="logo">URL <strong>Shortener</strong></div>
 	<ul class="links">
-		<li><a href="{{url_for('home')}}">Home</a></li>
+		<li><a href="{{url_for('index')}}">Home</a></li>
 		<li><a href="{{url_for('about')}}">About</a></li>
 		<li><a href="#projects">Projects</a></li>
-		<li><a href="#contact">Contact</a></li>
-        <li><a href="{{url_for('login')}}">Login</a></li>
+		{% if 'user' in session %}
+            <li><a href="{{url_for('logout')}}">LogOut</a></li>
+		{% else %}
+		<li><a href="{{url_for('login')}}">Login</a></li>
+		{% endif%}
 	</ul>
     </nav>
 	<meta charset="utf-8">

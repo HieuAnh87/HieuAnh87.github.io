@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}shorten URL{% endblock %}
+
+{% block content %}
+<div style="text-align: center; width: 50%; margin: 0 auto;" class="box">
+    <p>
+        Welcome!
+    </p>
+    <br>
+    {% if 'user' in session %}
+    <form>
+        <button formaction="{{url_for('home')}}" >Go Go Shorten !!!</button>
+    </form>
+    {% else %}
+    {% endif%}
+</div>
+
+{% endblock %}

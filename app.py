@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from flask_sqlalchemy import SQLAlchemy
 import random
 import string
+from form import *
 from models import *
 
 app = Flask(__name__)
@@ -11,11 +12,19 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
+users = [
+    {"id": 1, "full_name": "Pet Rescue Team", "email" : "veronica.lodge@email.com", "password" : "123abc"}
+]
+
 @app.before_first_request
 def create_tables():
     db.create_all()
+#
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/shorten', methods=['POST', 'GET'])
 def home():
     if request.method == "POST":
         url_received = request.form["nm"]
@@ -34,13 +43,31 @@ def home():
     else:
         return render_template('url_page.html')
 
-@app.route('/About')
+@app.route('/about')
 def about():
     return render_template('about.html')
 
-@app.route('/Login')
+@app.route('/login', methods=['POST', 'GET'])
 def login():
-    return render_template('Login.html')
+    form = LoginForm()
+    if form.validate_on_submit():
+        # check if account is on users
+        user = next(
+            (user for user in users if user["email"] == form.email.data and user["password"] == form.password.data),
+            None)
+        if user is None:
+            return render_template("login.html", form=form, message="Wrong Email or Password. Please Try Again.")
+        else:
+            session['user'] = user
+            return redirect(url_for('home', _scheme='http', _external=True))
+            # return render_template("login.html", message="Successfully Logged In!" )
+    return render_template('login.html', form = form)
+
+@app.route('/logout')
+def logout():
+    if 'user' in session:
+        session.pop('user')
+    return redirect(url_for('index', _scheme='http', _external=True))
 
 @app.route('/<short_url>')
 def redirection(short_url):
