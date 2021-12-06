@@ -1,2 +1,2 @@
 # URL Shortener
-URL Shortener using Flask, SQlALChemy
+URL Shortener RestFul webservices using Python with Flask, SQlALChemy
