@@ -5,13 +5,24 @@ import string
 from app import db
 
 class Urls(db.Model):
-    id_ = db.Column(db.Integer, primary_key = True)
-    long = db.Column(db.String(500)) #nullable = False
-    short = db.Column(db.String(10))  #, unique = True, nullable = False)
-
+    id_ = db.Column(db.Integer, primary_key=True)
+    long = db.Column(db.String(500))
+    short = db.Column(db.String(10), unique=True)
     def __init__(self, long, short):
         self.long = long
         self.short = short
+
+
+# class Users(db.Model):
+#     id_ = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.String(100))
+#     email = db.Column(db.String(100), unique=True)
+#     password = db.Column(db.String(100))
+#
+#     def __init__(self, name, email, password):
+#         self.name = name
+#         self.email = email
+#         self.password = password
 
 
 def shorten_url():
