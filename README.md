@@ -1,2 +1,2 @@
-# pj
-url shoterner
+# URL Shortener
+URL Shortener using Flask, SQlALChemy
