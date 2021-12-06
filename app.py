@@ -3,30 +3,16 @@ from flask_sqlalchemy import SQLAlchemy
 import random
 import string
 from form import *
-from models import *
-
-# test
-# from flask_script import Manager
-# from flask_migrate import Migrate, MigrateCommand
-# from werkzeug.utils import cached_property
-#
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'dfewfew123213rwdsgert34tgfd1234trgf'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-#
-# from models import db  # <-- this needs to be placed after app is created
-#
-# migrate = Migrate(app, db)
-# manager = migrate(app)
-# manager.add_command('db', MigrateCommand)
 
 db = SQLAlchemy(app)
 
+from models import *
 
-# db.app = app
-# db.init_app(app)
 
 class Users(db.Model):
     id_user = db.Column(db.Integer, primary_key=True)
@@ -129,4 +115,4 @@ def display_all():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, host="0.0.0.0", port=3000)
