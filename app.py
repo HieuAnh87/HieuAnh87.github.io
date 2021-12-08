@@ -5,7 +5,7 @@ import string
 from form import *
 
 
-from models import *
+# from models import *
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'dfewfew123213rwdsgert34tgfd1234trgf'
@@ -15,45 +15,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-# from models import *
-# def shorten_url():
-#     letters = string.ascii_lowercase + string.ascii_uppercase
-#     while True:
-#         rand_letters = random.choices(letters, k=5)
-#         rand_letters = "".join(rand_letters)
-#         short_url = Urls.query.filter_by(short=rand_letters).first()
-#         if not short_url:
-#             return rand_letters
+from models import *
 
-
-# class Urls(db.Model):
-#     __tablename__ = 'urls'
-#     id_ = db.Column(db.Integer, primary_key=True)
-#     long = db.Column(db.String(500))
-#     short = db.Column(db.String(10), unique=True)
-#     user_id = db.Column(db.Integer, db.ForeignKey('users.id_user'), nullable=False)
-#     url = db.relationship("Users", backref=db.backref("Urls", lazy=True))
-#
-#     # user = db.relationship("Users", backref=db.backref("Urls", lazy=True))
-#     # user = db.relationship("Users", backref=db.backref("users", uselist=False))
-#
-#     def __init__(self, long, short, user_id):
-#         self.long = long
-#         self.short = short
-#         self.user_id = user_id
-#
-#
-# class Users(db.Model):
-#     __tablename__ = 'users'
-#     id_user = db.Column(db.Integer, primary_key=True)
-#     name = db.Column(db.String(100))
-#     email = db.Column(db.String(100), unique=True)
-#     password = db.Column(db.String(100))
-#
-#     def __init__(self, name, email, password):
-#         self.name = name
-#         self.email = email
-#         self.password = password
 
 
 @app.before_first_request
