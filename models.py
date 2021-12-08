@@ -13,9 +13,6 @@ class Urls(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id_user'), nullable=False)
     url = db.relationship("Users", backref=db.backref("Urls", lazy=True))
 
-    # user = db.relationship("Users", backref=db.backref("Urls", lazy=True))
-    # user = db.relationship("Users", backref=db.backref("users", uselist=False))
-
     def __init__(self, long, short, user_id):
         self.long = long
         self.short = short
