@@ -14,6 +14,7 @@
 		{% if 'user' in session %}
             <li><a href="{{url_for('logout')}}">LogOut</a></li>
 		{% else %}
+				<li><a href="{{url_for('signup')}}">Signup</a></li>
 				<li><a href="{{url_for('login')}}">Login</a></li>
 		{% endif%}
 	</ul>
@@ -29,7 +30,5 @@
         {% block content%}
         {% endblock %}
     </div>
-
   </body>
-</body>
 </html>

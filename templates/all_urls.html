@@ -2,7 +2,35 @@
 {% block title %}View all URLS{% endblock %}
 
 {% block content %}
-    {% for url in vals %}
-        <p><strong>ID:</strong>{{url.id_}} <strong>Short:</strong>{{url.short}} <strong>Long:</strong> {{url.long}}</p>
-    {% endfor %}
+<!--    {% for url in vals %}-->
+<!--        <p><strong>Short:</strong>{{url.short}} <strong>Long:</strong> {{url.long}}</p>-->
+<!--    {% endfor %}-->
+      <style>
+         table, th, td {
+            border: 1px solid black;
+            width: 60%;
+            margin: 0 auto;
+         }
+      </style>
+      <h1><center>All Url</center></h1>
+      <table>
+         <tr>
+            <th>Short</th>
+             <th>Long</th>
+         </tr>
+          {% for url in vals %}
+         <tr>
+            <td>http://192.168.18.42:3000/{{url.short}}</td>
+            <td>{{url.long}}</td>
+         </tr>  
+         {% endfor %}
+      </table>
+
+<div style="text-align: center; width: 50%; margin: 0 auto;">
+            <form>
+            <br><button formaction="{{url_for('home')}}" >Go Go Shorten !!!</button> <br>
+            <br><button formaction="{{url_for('index')}}" >Go to HomePage</button>
+            </form>
+</div>
+
 {% endblock %}

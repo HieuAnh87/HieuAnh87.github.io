@@ -9,7 +9,7 @@
     <br>
     {% if 'user' in session %}
     <form>
-        <button formaction="{{url_for('home')}}" >Go Go Shorten !!!</button>
+        <button formaction="{{url_for('home')}}" >Go Go Shorten !!!</button>     <button formaction="{{url_for('display_all')}}" >View all Url Shorten</button><br>
     </form>
     {% else %}
     {% endif%}

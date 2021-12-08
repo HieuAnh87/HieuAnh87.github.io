@@ -5,7 +5,30 @@
 {% endblock %}
 
 {% block content %}
-<div style="text-align: center; width: 50%; margin: 0 auto;" class="shadowed">
+<h1><center>Signup</center></h1>
 
-</div>
+{% if form %}
+<form  class="box" action="{{url_for('signup')}}" method="POST" style="text-align: center; width: 70%; margin: 0 auto;">
+    <!-- Full Name Field -->
+    {{ form.name.label }}: <br>
+    {{ form.name }}
+    <br>
+    <!-- Email Field -->
+    {{ form.email.label }}: <br>
+    {{ form.email }}
+    <br>
+    <!-- Password Field -->
+    {{ form.password.label }}: <br>
+    {{ form.password }}
+    <br>
+    <!-- Confirm Password Field -->
+    {{ form.confirm_password.label }}: <br>
+    {{ form.confirm_password }}
+    <br>
+    <!--Token-->
+    {{ form.csrf_token }}
+    <!-- Submit Field -->
+    {{ form.submit }}
+</form>
+{% endif %}
 {% endblock %}
