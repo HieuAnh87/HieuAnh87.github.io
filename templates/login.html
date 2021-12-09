@@ -9,6 +9,7 @@
         {{ message }}
     {% endif %}
 </div><br>
+ <div class="login-form">
 {% if form %}
     <form class="box" action="{{url_for('login')}}" style="text-align: center; width: 70%; margin: 0 auto;" method="POST">
        <!-- Email Field -->
@@ -23,8 +24,11 @@
     {{ form.csrf_token }}
        <!-- Submit Field -->
     {{ form.submit }}
-</form>
+    </form>
+ </div>
 {% endif %}
+          <center> <p>Don't have an account?</p> <a href="http://192.168.18.42:3000/signup">Sign up now !</a></center>
+
 {% endblock %}
 
 
