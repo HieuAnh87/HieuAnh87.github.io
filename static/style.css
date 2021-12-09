@@ -104,8 +104,10 @@ nav .links a {
 }
 
 .shadowed {
-  border: 8px solid black;
-  background-image: url('https://trungtaminan.com.vn/wp-content/uploads/2020/06/background-in-an.jpg');
+  border: 6px solid black;
+  background-image: url('https://image.freepik.com/free-vector/winter-blue-pink-gradient-background-vector_53876-117276.jpg');
+  background-size: cover;
+;
   height: 300px;
   margin: 200px;
   padding: 20px;
