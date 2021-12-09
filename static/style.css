@@ -1,7 +1,11 @@
 body {
 	padding: 0;
 	margin-top: 200px;
-	background-image: url("assets/bg.png");
+	background-image: url('https://image.divscode.com/login-bg.jpg');
+	background-size: cover;
+	height: 200vh;
+	z-index: 1;
+
 }
 .container {
 	position: relative;
@@ -100,24 +104,21 @@ nav .links a {
 }
 
 .shadowed {
-  background: white;
-  height: 400px;
-  margin: 100px;
+  border: 8px solid black;
+  background-image: url('https://trungtaminan.com.vn/wp-content/uploads/2020/06/background-in-an.jpg');
+  height: 300px;
+  margin: 200px;
   padding: 20px;
   position: relative;
+  margin-bottom: 5px;
 }
 
-.shadowed::after {
-  border-radius: 0 0 300px 300px;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
-  content: '';
-  display: block;
-  height: 350px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: -1;
+.shadowed input{
+ width: 50%;
+ margin-bottom: 5px;
+ height: 25px;
+ padding:1px 15x;
+
 }
 
 btn {
@@ -142,4 +143,27 @@ btn {
   transition: color .15s ease-in-out, background-color .15s
 ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-
 in-out;
+}
+
+.login-form{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+h1{
+margin:0 0 15px;
+ color:#3e65da;
+ font-size:30px;
+ text-align: center;
+ opacity:100;
+}
+
+.box input{
+ width: 15%;
+ margin-bottom: 5px;
+ height: 30px;
+ padding:1px 15px;
+ opacity:100;
 }
