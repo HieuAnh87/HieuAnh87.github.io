@@ -5,7 +5,6 @@ body {
 	background-size: cover;
 	height: 200vh;
 	z-index: 1;
-
 }
 .container {
 	position: relative;
@@ -58,7 +57,6 @@ nav .links a {
 	top: -100px;
 }
 
-
 @media screen and (max-width: 768px) {
 	nav .logo {
 		float: none;
@@ -104,10 +102,9 @@ nav .links a {
 }
 
 .shadowed {
-  border: 6px solid black;
+  border: 8px solid black;
   background-image: url('https://image.freepik.com/free-vector/winter-blue-pink-gradient-background-vector_53876-117276.jpg');
   background-size: cover;
-;
   height: 300px;
   margin: 200px;
   padding: 20px;
@@ -115,13 +112,6 @@ nav .links a {
   margin-bottom: 5px;
 }
 
-.shadowed input{
- width: 50%;
- margin-bottom: 5px;
- height: 25px;
- padding:1px 15x;
-
-}
 
 btn {
   display: inline-block;
@@ -163,9 +153,26 @@ margin:0 0 15px;
 }
 
 .box input{
- width: 15%;
- margin-bottom: 5px;
+ width: 20%;
+ margin-bottom: 2px;
  height: 30px;
  padding:1px 15px;
  opacity:100;
+}
+
+.login-form{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+}
+
+.ic1 {
+  margin-top: 20px;
 }
